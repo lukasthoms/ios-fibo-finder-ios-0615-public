@@ -10,6 +10,16 @@
 
 @implementation FISFiboFinder
 
-//define methods here
+-(NSUInteger) fibonacciNumberAtIndex:(NSUInteger)index {
+    NSMutableArray *fibonacci = [[NSMutableArray alloc] initWithObjects:@"0", @"1", nil];
+    for (NSUInteger i=0; i<index; i++) {
+        NSUInteger fibo1 = [fibonacci[i] integerValue];
+        NSUInteger fibo2 = [fibonacci[i+1] integerValue];
+        NSUInteger fiboStepper = (fibo1 + fibo2);
+        NSString *newNumber = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)fiboStepper];
+        [fibonacci addObject:newNumber];
+    }
+    return [fibonacci[index] integerValue];
+}
 
 @end
